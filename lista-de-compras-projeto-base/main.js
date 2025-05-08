@@ -10,10 +10,15 @@ form.addEventListener("submit", function (evento) {
 
 function salvarItem() {
     const comprarItem = itensInput.value
+    const checarDuplicado = listaDeItens.some((elemento) => elemento.valor.toUpperCase() === comprarItem.toUpperCase())
 
+    if (checarDuplicado) {
+        alert("Item já cadastrado")
+    } else {
     listaDeItens.push({
         valor: comprarItem
     })
+}
 
     console.log(listaDeItens)
 }
